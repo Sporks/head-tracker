@@ -1,0 +1,28 @@
+{
+  "name": "head-tracker-arduino",
+  "version": "1.0.0",
+  "description": "Arduino Head Tracking with Webcam",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sporks/head-tracker.git"
+  },
+  "keywords": [
+    "arduino",
+    "tracking"
+  ],
+  "bugs": {
+    "url": "https://github.com/Sporks/head-tracker/issues"
+  },
+  "homepage": "https://github.com/Sporks/head-tracker#readme",
+  "author": "Daniel Levin",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "socket.io": "^1.4.3"
+  }
+}
