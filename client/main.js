@@ -3,11 +3,15 @@ var videoInput = document.getElementById('inputVideo');
 var canvasInput = document.getElementById('inputCanvas');
 // var debugOverlay = document.getElementById('debug');
 //Initialize headtrackr
+
+//flip canvas so it right is also right on the screen
+
 var htracker = new headtrackr.Tracker();
 htracker.init(videoInput, canvasInput);
 htracker.start();
 //tell if started or not
 var htracking = true;
+
 
 // Add start and stop functionality
 $("#start").click(function(){
@@ -46,10 +50,10 @@ document.addEventListener('headtrackrStatus',
 );
 //camera is ready set up event listener for face detection
 function cameraReady() {
-    setInterval(startTracking, 400);
+    setInterval(startTracking, 100);
     document.addEventListener('facetrackingEvent',
         function(event) {
-            xPos = event.x;
+            xPos = 179-Math.floor(event.x/640*180)
         }
     );
 }
@@ -59,7 +63,7 @@ function startTracking(){
     if(xPos !== xPosOld){
         xPosOld = xPos;
         // return the value in percent of screen center is in (maybe round it?)
-        socket.emit('position', xPos/640*255);
+        socket.emit('position', xPos);
     }
 
 }
