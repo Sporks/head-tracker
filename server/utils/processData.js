@@ -14,7 +14,7 @@ board.on("ready", function(){
 var oldPos = 0;
 
 var processData = {
-    print: function(position){
+    moveServo: function(position){
         if(index + 1 === rainbows.length){
             index = 0;
         }
@@ -39,22 +39,8 @@ var processData = {
             yellowLed.off();
             oldPos = position;
         }
-        if(position > 110){
-            console.log("The position is at ", 150);
-            servo.to(110);
-        }
-        else if(position < 30){
-            console.log("The position is at ", 30);
-            servo.to(position)
-        }
-        else {
-            console.log("The position is at ", position);
-            servo.to(position);
-        }
-    },
-    showSocket: function(req, res, socket){
-        var x = simpleStringify(socket);
-        console.log(socket);
+        // console.log("The position is at ", position);
+        servo.to(position);
     }
 };
 
